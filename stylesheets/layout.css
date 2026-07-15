@@ -1462,7 +1462,7 @@ h2 {
   }
 
   .polaroid-back p {
-    font-size: clamp(1.85rem, 8vw, 2.45rem);
+    font-size: clamp(2.15rem, 9.5vw, 2.9rem);
   }
 
   .tree-stage {
