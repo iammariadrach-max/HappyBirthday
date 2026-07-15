@@ -1449,7 +1449,7 @@ h2 {
 
   .lantern span {
     width: 82%;
-    font-size: clamp(2rem, 11vw, 3.45rem);
+    font-size: clamp(1.85rem, 9.6vw, 3.15rem);
     line-height: 1.04;
   }
 
