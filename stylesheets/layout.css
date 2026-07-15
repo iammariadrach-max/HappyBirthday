@@ -1457,6 +1457,14 @@ h2 {
     aspect-ratio: 0.92;
   }
 
+  .polaroid-caption {
+    font-size: 1.45rem;
+  }
+
+  .polaroid-back p {
+    font-size: clamp(1.85rem, 8vw, 2.45rem);
+  }
+
   .tree-stage {
     min-height: 500px;
   }

@@ -16,7 +16,7 @@ const content = {
   ending: 'С\u00A0Днем рождения ❤️',
 
   // Main photo for section 2.
-  mainPhoto: 'assets/mom.svg',
+  mainPhoto: 'assets/mom.jpg',
 
   // Replace with real image paths, for example: "assets/images/photo1.jpg".
   photos: [
