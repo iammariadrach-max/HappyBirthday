@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Интерактивный цифровой подарок на день рождения для мамы."
+    />
+    <title>С Днем рождения, мама</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="stylesheets/style.css" />
+  </head>
+
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <canvas id="particleCanvas"></canvas>
+      <div class="gradient-glow gradient-glow-one"></div>
+      <div class="gradient-glow gradient-glow-two"></div>
+    </div>
+
+    <button class="music-toggle" type="button" aria-label="Включить музыку">
+      <span class="music-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <main id="top">
+      <section
+        class="section intro-section"
+        id="intro"
+        aria-labelledby="intro-title"
+      >
+        <div class="intro-vignette"></div>
+
+        <div class="intro-content">
+          <p class="eyebrow">для&nbsp;мамы</p>
+          <h1 id="intro-title" data-content="title"></h1>
+          <p class="intro-subtitle" data-content="subtitle"></p>
+
+          <button class="primary-button start-button" type="button">
+            <span data-content="startButton"></span>
+          </button>
+        </div>
+      </section>
+
+      <section
+        class="section photo-section"
+        id="photo-journey"
+        aria-labelledby="photo-title"
+      >
+        <div class="section-inner photo-layout">
+          <div class="photo-frame reveal-soft" data-photo-index="0">
+            <img alt="" />
+
+            <div class="photo-placeholder">
+              <span>Добавьте фотографию</span>
+            </div>
+          </div>
+
+          <div class="photo-copy">
+            <p class="eyebrow">нежный момент</p>
+            <h2 id="photo-title" data-content="photoSectionTitle"></h2>
+            <p class="typewriter" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section memory-section"
+        id="memories"
+        aria-labelledby="memories-title"
+      >
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">открытки памяти</p>
+            <h2 id="memories-title" data-content="memorySectionTitle"></h2>
+          </div>
+
+          <div class="memory-table" aria-label="Стол с воспоминаниями">
+            <div class="polaroid-field" id="memoryCards"></div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section tree-section"
+        id="wish-tree"
+        aria-labelledby="tree-title"
+      >
+        <div class="section-inner tree-layout">
+          <div class="section-heading">
+            <p class="eyebrow">листочки желаний</p>
+            <h2 id="tree-title" data-content="treeSectionTitle"></h2>
+          </div>
+
+          <div class="tree-stage">
+            <svg
+              class="wish-tree"
+              viewBox="0 0 760 640"
+              role="img"
+              aria-label="Дерево пожеланий"
+            >
+              <defs>
+                <linearGradient id="trunkGradient" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#9a6a4d" />
+                  <stop offset="100%" stop-color="#5e392c" />
+                </linearGradient>
+
+                <radialGradient id="leafGradient" cx="38%" cy="28%" r="78%">
+                  <stop offset="0%" stop-color="#fff4cf" />
+                  <stop offset="48%" stop-color="#d8a852" />
+                  <stop offset="100%" stop-color="#a96f42" />
+                </radialGradient>
+              </defs>
+
+              <path
+                class="tree-trunk"
+                d="M373 575 C383 475 357 406 365 332 C370 282 407 248 416 201 C420 178 407 150 395 124 C437 169 458 215 443 260 C431 294 401 309 395 347 C418 315 451 292 487 274 C520 258 546 231 558 197 C561 243 544 280 510 304 C477 327 430 338 407 381 C448 345 493 339 538 348 C569 354 598 340 621 312 C612 359 581 386 542 387 C492 389 452 390 418 432 C398 457 401 514 416 575 Z"
+              />
+
+              <path class="tree-branch" d="M381 340 C331 292 286 270 231 263" />
+
+              <path class="tree-branch" d="M394 382 C323 363 264 375 205 414" />
+
+              <path class="tree-branch" d="M414 314 C463 272 506 246 579 246" />
+
+              <path class="tree-branch" d="M410 426 C477 402 536 412 600 450" />
+
+              <g id="wishLeaves"></g>
+            </svg>
+
+            <div class="wish-note" id="wishNote" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section sky-section" id="sky" aria-labelledby="sky-title">
+        <div class="section-inner sky-content">
+          <div class="section-heading">
+            <p class="eyebrow">маленькие мечты</p>
+            <h2 id="sky-title" data-content="skySectionTitle"></h2>
+          </div>
+
+          <div class="lantern-stage" id="lanternStage"></div>
+        </div>
+      </section>
+
+      <section
+        class="section final-section"
+        id="final"
+        aria-labelledby="final-title"
+      >
+        <div class="final-spotlight"></div>
+
+        <div class="section-inner final-layout">
+          <div class="cake-stage reveal-soft" aria-label="Праздничный торт">
+            <div class="cake">
+              <div class="candles" id="candles"></div>
+              <div class="cake-top"></div>
+              <div class="cake-middle"></div>
+              <div class="cake-bottom"></div>
+              <div class="cake-plate"></div>
+            </div>
+          </div>
+
+          <button
+            class="primary-button blow-button"
+            id="blowButton"
+            type="button"
+          >
+            <span data-content="blowButton"></span>
+          </button>
+
+          <div class="final-copy">
+            <p class="eyebrow">финальная открытка</p>
+            <h2 id="final-title" data-content="finalTitle"></h2>
+          </div>
+
+          <div class="heart-message" id="heartMessage" aria-live="polite">
+            <div class="heart-shape" aria-hidden="true"></div>
+            <p data-content="ending"></p>
+
+            <button class="secondary-button restart-button" type="button">
+              <span data-content="restartButton"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script src="javascripts/scripts.js"></script>
+  </body>
+</html>
